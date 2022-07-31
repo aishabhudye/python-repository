@@ -5,4 +5,4 @@ class StringProcessor:
             print('Element at {0} is {1}'.format(index, element))
             index = index + 1
 
-        return None;
+        return None
