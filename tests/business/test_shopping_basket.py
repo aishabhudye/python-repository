@@ -7,7 +7,7 @@ from src.business.shopping_basket import ShoppingBasket
 The products dictionary / hash table / hash map holds a value (product price) mapped against a key (product identifer)
 e.g. The key 'Lemon' maps to the value of £0.50 => Each lemon costs £0.50
 '''
-products = {'Lemon': 0.50, 'Apple': 0.75, 'Orange': '0.65', 'Melon': 1.00, 'Pineapple': 1.50, 'Mango': 1.25}
+products = {'Lemon': 0.50, 'Apple': 0.75, 'Orange': 0.65, 'Melon': 1.00, 'Pineapple': 1.50, 'Mango': 1.25}
 
 '''
 The basket dictionary / hash table / hash map holds a value (the number of a particular product) mapped against a key (product identifer)
@@ -25,7 +25,7 @@ class GamesTestCase(TestCase):
         pass
 
     def test_basket_total(self):
-        self.assertEqual(10.00, self.test_target.calculate_total(products, basket))
+        self.assertEqual(11.95, self.test_target.calculate_total(products, basket))
 
 
 if __name__ == '__main__':
