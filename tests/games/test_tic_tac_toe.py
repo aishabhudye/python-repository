@@ -4,7 +4,7 @@ from unittest import TestCase
 from src.games.tic_tac_toe import TicTacToe
 
 
-class MyTestCase(TestCase):
+class GamesTestCase(TestCase):
     def setUp(self) -> None:
         self.test_target = TicTacToe()
 

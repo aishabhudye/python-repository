@@ -3,7 +3,7 @@ import unittest
 from src.strings.string_processing import StringProcessor
 
 
-class MyTestCase(unittest.TestCase):
+class StringProcessingTestCase(unittest.TestCase):
     def setUp(self) -> None:
         self.test_target = StringProcessor()
 
