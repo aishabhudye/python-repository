@@ -15,6 +15,6 @@ class FlooringCost:
         else:
             total_cost = length * width * 10
             print('The total cost of installing carpet in a room of length {} and width {} is {}'.format(length, width, total_cost))
-        return total_cost,length,width
+        return total_cost
 
 
