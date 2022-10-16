@@ -9,7 +9,10 @@ class GamesTestCase(TestCase):
         self.test_target = TicTacToe()
 
     def test_all_locations_are_not_populated_scenario_1(self):
+        """ Initialise (implicit declaration) a variable holding an array (size 9) of empty strings """
         noughts_crosses_array = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+        """The method board_is_full is invoked, passing in variable noughts_crosses_array as a parameter.  
+        The expectation is that the method will return False and that is what we are asserting"""
         self.assertFalse(self.test_target.board_is_full(noughts_crosses_array), "Scenario 1")
 
     def test_all_locations_are_not_populated_scenario_2(self):

@@ -99,7 +99,6 @@ class TicTacToe:
         input_array = location_value.split(":")
         location = int(input_array[0])
         value_at_location = input_array[1]
-        X = input_array
         """If the input is invalid in anyway, return a special flag/value"""
         location_is_valid = (0 <= location <= 8)
         value_is_valid = value_at_location == 'X' or value_at_location == "0"
@@ -119,6 +118,7 @@ class TicTacToe:
     def board_is_full(array_parameter):
         populated_location_count = 0
         empty_location_count = 0
+        """"""
         for item in array_parameter:
             if item == 'X' or item == '0':
                 populated_location_count += 1
