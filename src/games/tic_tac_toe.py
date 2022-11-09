@@ -7,19 +7,18 @@ class TicTacToe:
         self.print_board(tic_tac_toe_locations)
         noughts_crosses_array = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
         previous_location = -1
-        previous_value = ''
+        previous_value = '!'
         while self.board_is_not_full(noughts_crosses_array):
             user_input = input(
                 'Please specify which position/location you want your item to be as follows (0:X or 8:O) -> ')
             current_location, current_value = self.validate_input(user_input)
             '''If the user input is correct, carry on, else prompt for input'''
             user_input_is_invalid = current_location == -1 and current_value == '!'
-            duplicate_attempt = False
-            # print('CURRENT:{}->{} ; PREVIOUS:{}->{}'.format(current_location, current_value, previous_location,
-            #                                                 previous_value))
-            if previous_value == current_value or previous_location == current_location:
-                duplicate_attempt = True
+            duplicate_attempt = self.check_duplicate(current_location, current_value, previous_location, previous_value)
+
             while user_input_is_invalid or duplicate_attempt:
+                previous_location = current_location
+                previous_value = current_value
                 user_input = input(
                     'Please specify which position/location you want your item to be as follows (0:X or 8:O) -> ')
                 current_location, current_value = self.validate_input(user_input)
@@ -35,6 +34,14 @@ class TicTacToe:
             if self.someone_has_won(noughts_crosses_array):
                 print('{} has won'.format(current_value))
                 break
+
+    def check_duplicate(self, current_location, current_value, previous_location, previous_value):
+        duplicate_attempt = False
+        # print('CURRENT:{}->{} ; PREVIOUS:{}->{}'.format(current_location, current_value, previous_location,
+        #                                                 previous_value))
+        if previous_value == current_value or previous_location == current_location:
+            duplicate_attempt = True
+        return duplicate_attempt
 
     '''
     This returns a boolean flag either True or False
