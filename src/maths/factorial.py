@@ -8,6 +8,6 @@ def factorial(n):
         return n * factorial(n - 1)
 
 
-num = 3
-print("number : ", num)
-print("Factorial : ", factorial(num))
+number = 3
+print("number : ", number)
+print("Factorial : ", factorial(number))
