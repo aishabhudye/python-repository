@@ -39,3 +39,6 @@ def print_product_and_basket_information(products, basket):
 
 
 
+
+
+
