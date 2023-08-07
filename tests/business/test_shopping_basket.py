@@ -1,7 +1,7 @@
 import unittest
 from unittest import TestCase
 
-from src.business.shopping_basket import ShoppingBasket
+from src.business.shopping_basket import calculate_total
 
 '''
 The products dictionary / hash table / hash map holds a value (product price) mapped against a key (product identifer)
@@ -17,15 +17,9 @@ basket = {'Lemon': 4, 'Apple': 4, 'Orange': 3, 'Melon': 1, 'Pineapple': 1, 'Mang
 
 
 class GamesTestCase(TestCase):
-    def setUp(self) -> None:
-        self.test_target = ShoppingBasket()
-
-    def test_print_products_and_basket_information(self):
-        self.test_target.print_product_and_basket_information(products, basket)
-        pass
 
     def test_basket_total(self):
-        self.assertEqual(11.95, self.test_target.calculate_total(products, basket))
+        self.assertEqual(11.95, calculate_total(products, basket))
 
 
 if __name__ == '__main__':
