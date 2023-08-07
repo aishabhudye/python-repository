@@ -1,12 +1,10 @@
 import unittest
 from unittest import TestCase
 
-from src.games.tic_tac_toe import TicTacToe, validate_input, someone_has_won, board_is_full
+from src.games.tic_tac_toe import validate_input, someone_has_won, board_is_full
 
 
 class GamesTestCase(TestCase):
-    def setUp(self) -> None:
-        self.test_target = TicTacToe()
 
     def test_all_locations_are_not_populated_scenario_1(self):
         noughts_crosses_array = [" ", " ", " ", " ", " ", " ", " ", " ", " "]

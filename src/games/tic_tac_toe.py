@@ -94,40 +94,38 @@ def print_board(array_parameter):
     print('|{}|{}|{}|'.format(array_parameter[6], array_parameter[7], array_parameter[8]))
 
 
-class TicTacToe:
-
-    def display_instructions_with_board(self):
-        print('Please specify which position/location you want your item to be as follows (0:X or 8:O)')
-        print('The positions themselves are as follows')
-        tic_tac_toe_locations = ["0", "1", "2", "3", "4", "5", "6", "7", "8"]
-        print_board(tic_tac_toe_locations)
-        noughts_crosses_array = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-        previous_location = -1
-        previous_value = ''
-        while board_is_not_full(noughts_crosses_array):
+def display_instructions_with_board():
+    print('Please specify which position/location you want your item to be as follows (0:X or 8:O)')
+    print('The positions themselves are as follows')
+    tic_tac_toe_locations = ["0", "1", "2", "3", "4", "5", "6", "7", "8"]
+    print_board(tic_tac_toe_locations)
+    noughts_crosses_array = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+    previous_location = -1
+    previous_value = ''
+    while board_is_not_full(noughts_crosses_array):
+        user_input = input(
+            'Please specify which position/location you want your item to be as follows (0:X or 8:O) -> ')
+        current_location, current_value = validate_input(user_input)
+        '''If the user input is correct, carry on, else prompt for input'''
+        user_input_is_invalid = current_location == -1 and current_value == '!'
+        duplicate_attempt = False
+        # print('CURRENT:{}->{} ; PREVIOUS:{}->{}'.format(current_location, current_value, previous_location,
+        #                                                 previous_value))
+        if previous_value == current_value or previous_location == current_location:
+            duplicate_attempt = True
+        while user_input_is_invalid or duplicate_attempt:
             user_input = input(
                 'Please specify which position/location you want your item to be as follows (0:X or 8:O) -> ')
             current_location, current_value = validate_input(user_input)
-            '''If the user input is correct, carry on, else prompt for input'''
-            user_input_is_invalid = current_location == -1 and current_value == '!'
             duplicate_attempt = False
-            # print('CURRENT:{}->{} ; PREVIOUS:{}->{}'.format(current_location, current_value, previous_location,
-            #                                                 previous_value))
-            if previous_value == current_value or previous_location == current_location:
-                duplicate_attempt = True
-            while user_input_is_invalid or duplicate_attempt:
-                user_input = input(
-                    'Please specify which position/location you want your item to be as follows (0:X or 8:O) -> ')
-                current_location, current_value = validate_input(user_input)
-                duplicate_attempt = False
 
-            '''Store current value in previous value for comparison in the next iteration'''
-            previous_location = current_location
-            previous_value = current_value
-            noughts_crosses_array[current_location] = current_value
-            print_board(noughts_crosses_array)
+        '''Store current value in previous value for comparison in the next iteration'''
+        previous_location = current_location
+        previous_value = current_value
+        noughts_crosses_array[current_location] = current_value
+        print_board(noughts_crosses_array)
 
-            '''We need to check whether X or 0 has won at this point'''
-            if someone_has_won(noughts_crosses_array):
-                print('{} has won'.format(current_value))
-                break
+        '''We need to check whether X or 0 has won at this point'''
+        if someone_has_won(noughts_crosses_array):
+            print('{} has won'.format(current_value))
+            break
